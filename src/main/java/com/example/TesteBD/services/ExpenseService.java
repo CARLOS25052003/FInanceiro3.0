@@ -15,11 +15,11 @@ public class ExpenseService {
     @Autowired
     private ExpenseRepository expenseRepository;
 
-    public Expense save(Expense expense) {
+    public Expense saveExpense(Expense expense) {
         return expenseRepository.save(expense);
     }
 
-    public List<Expense> findAll() {
+    public List<Expense> getAllExpenses() {
         return expenseRepository.findAll(); // Certifique-se de que o método está implementado corretamente
     }
 

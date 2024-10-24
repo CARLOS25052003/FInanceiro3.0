@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:63342")
 @RestController
 @RequestMapping("/expenses")
+@CrossOrigin(origins="http://localhost:63342")
 public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
 
     @PostMapping
     public ResponseEntity<Expense> createExpense(@RequestBody Expense expense) {
-        Expense savedExpense = expenseService.save(expense);
+        Expense savedExpense = expenseService.saveExpense(expense);
         return ResponseEntity.ok(savedExpense);
     }
 
     @GetMapping
     public List<Expense> findAll() {
-        return expenseService.findAll(); // Certifique-se de que este método está implementado no ExpenseService
+        return expenseService.getAllExpenses(); // Certifique-se de que este método está implementado no ExpenseService
     }
 
     @GetMapping("/total")
