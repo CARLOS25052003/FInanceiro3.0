@@ -31,4 +31,9 @@ public class ExpenseController {
     public Double findTotal() {
         return expenseService.getTotalExpenses();
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteExpense(@PathVariable Long id) {
+        expenseService.deleteExpense(id);
+        return ResponseEntity.noContent().build();
+    }
 }

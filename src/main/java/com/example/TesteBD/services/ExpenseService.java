@@ -26,4 +26,7 @@ public class ExpenseService {
     public Double getTotalExpenses() {
         return expenseRepository.findAll().stream().mapToDouble(Expense::getAmount).sum();
     }
+    public void deleteExpense(Long id){
+        expenseRepository.deleteById(id);
+    }
 }

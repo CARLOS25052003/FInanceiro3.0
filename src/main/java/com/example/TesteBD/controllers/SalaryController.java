@@ -1,6 +1,7 @@
 package com.example.TesteBD.controllers;
 
 import com.example.TesteBD.models.Salary;
+import com.example.TesteBD.services.ExpenseService;
 import com.example.TesteBD.services.SalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import java.util.List;
 public class SalaryController {
     @Autowired
     private SalaryService salaryService;
+    @Autowired
+    private ExpenseService expenseService;
 
     @PostMapping
     public ResponseEntity<Salary> createSalary(@RequestBody Salary salary) {
@@ -31,4 +34,10 @@ public class SalaryController {
     public double getTotalBalance() {
         return salaryService.getTotalBalance();
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteSalary(@PathVariable Long id) {
+        salaryService.deleteSalary(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

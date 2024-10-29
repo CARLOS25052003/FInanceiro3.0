@@ -24,4 +24,7 @@ public class SalaryService {
     public Double getTotalBalance() {
         return salaryRepository.findAll().stream().mapToDouble(Salary::getAmount).sum();
     }
+    public void deleteSalary(Long id) {
+        salaryRepository.deleteById(id);
+    }
 }
