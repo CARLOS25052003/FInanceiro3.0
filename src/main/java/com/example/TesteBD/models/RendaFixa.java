@@ -6,12 +6,13 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-@Table(name="salary")
-public class Salary {
+@Table(name = "renda_fixa")
+public class RendaFixa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String description;
     private double amount;
+
 }
