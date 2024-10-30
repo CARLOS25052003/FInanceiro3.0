@@ -1,11 +1,8 @@
 package com.example.TesteBD.controllers;
 
-import com.example.TesteBD.models.Expense;
 import com.example.TesteBD.models.RendaFixa;
-import com.example.TesteBD.services.ExpenseService;
 import com.example.TesteBD.services.RendaFixaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
