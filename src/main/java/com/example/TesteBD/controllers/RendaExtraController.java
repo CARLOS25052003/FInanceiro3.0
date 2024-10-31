@@ -16,8 +16,6 @@ import java.util.List;
 public class RendaExtraController {
     @Autowired
     private RendaExtraService rendaExtraService;
-    @Autowired
-    private DespesasService despesasService;
 
     @PostMapping
     public ResponseEntity<RendaExtra> createRendaExtra(@RequestBody RendaExtra rendaExtra) {

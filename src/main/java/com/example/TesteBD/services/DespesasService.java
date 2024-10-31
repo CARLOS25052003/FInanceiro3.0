@@ -18,16 +18,11 @@ public class DespesasService {
     private DespesasRepository despesasRepository;
 
     public Despesas saveDespesas(Despesas despesas) {
-        despesas.setDateAdded(LocalDate.now().format(formatter));
         return despesasRepository.save(despesas);
     }
 
     public List<Despesas> getAllDespesas() {
-        List<Despesas> despesa = despesasRepository.findAll();
-        for (Despesas despesas : despesa) {
-            LocalDate date = LocalDate.parse(despesas.getDateAdded(), formatter);
-        }
-        return despesa;
+        return despesasRepository.findAll();
     }
     public Double getTotalDespesas() {
         return despesasRepository.findAll().stream().mapToDouble(Despesas::getAmount).sum();

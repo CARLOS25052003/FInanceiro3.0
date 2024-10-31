@@ -17,6 +17,6 @@ public class RendaExtra {
     private String description;
     private double amount;
 
-    @Column(name = "data_added")
+    @Column(name = "date_added")
     private String dateAdded;
 }

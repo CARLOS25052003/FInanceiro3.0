@@ -12,7 +12,7 @@ public class RendaFixaService {
     @Autowired
     private RendaFixaRepository rendaFixaRepository;
 
-    public RendaFixa addRendaFixa(RendaFixa rendaFixa) {
+    public RendaFixa saveRendaFixa(RendaFixa rendaFixa) {
         return rendaFixaRepository.save(rendaFixa);
     }
 
@@ -20,10 +20,9 @@ public class RendaFixaService {
         return rendaFixaRepository.findAll();
     }
 
-    public RendaFixa getRendaFixa(Long id) {
-        return rendaFixaRepository.findById(id).orElse(null);
+    public Double getTotalRendasFixas() {
+        return rendaFixaRepository.findAll().stream().mapToDouble(RendaFixa::getAmount).sum();
     }
-
     public void deleteRendaFixa(Long id) {
         rendaFixaRepository.deleteById(id);
     }

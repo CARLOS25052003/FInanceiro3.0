@@ -15,4 +15,5 @@ public class RendaFixa {
     private String description;
     private double amount;
 
+    private String dateAdded;
 }

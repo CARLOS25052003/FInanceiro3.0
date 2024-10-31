@@ -16,5 +16,6 @@ public class Despesas {
 
     private String description; // Descrição da despesa
     private double amount;       // Valor da despesa
+    @Column(name="date_added")
     private String dateAdded;
 }
