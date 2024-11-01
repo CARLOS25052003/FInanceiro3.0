@@ -18,4 +18,8 @@ public class Despesas {
     private double amount;       // Valor da despesa
     @Column(name="date_added")
     private String dateAdded;
+
+    @ManyToOne
+    @JoinColumn(name = "mes_id")
+    private Mes mes;
 }

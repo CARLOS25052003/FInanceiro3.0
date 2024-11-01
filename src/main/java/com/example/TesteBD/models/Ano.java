@@ -4,20 +4,19 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter @Setter
 @Entity
-@Table(name = "renda_fixa")
-public class RendaFixa {
+@Table(name = "ano")
+public class Ano {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String description;
-    private double amount;
+    private int ano;
 
-    private String dateAdded;
-
-    @ManyToOne
-    @JoinColumn(name = "mes_id")
-    private Mes mes;
+    @OneToMany(mappedBy = "ano", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Mes> meses;
 }

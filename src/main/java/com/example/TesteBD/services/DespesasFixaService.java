@@ -22,6 +22,9 @@ public class DespesasFixaService {
     public Double getDespesaFixa() {
         return despesasFixaRepository.findAll().stream().mapToDouble(DespesaFixa::getAmount).sum();
     }
+    public List<DespesaFixa> getDespesasFixasPorMes(Long mesId) {
+        return despesasFixaRepository.findByMesId(mesId);
+    }
     public void deleteDespesaFixa(Long id) {
         despesasFixaRepository.deleteById(id);
     }

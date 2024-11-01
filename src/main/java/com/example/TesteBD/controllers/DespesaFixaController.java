@@ -7,27 +7,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
-@RequestMapping("/despesas-fixas")
+@RequestMapping("/despesa-fixa")
 public class DespesaFixaController {
+
     @Autowired
-    private DespesasFixaService despesasFixaService;
+    private DespesasFixaService despesaFixaService;
 
     @PostMapping
-    public ResponseEntity<DespesaFixa> criarDespesa(@RequestBody DespesaFixa despesaFixa) {
-        DespesaFixa savedDespesaFixa = despesasFixaService.addDespesaFixa(despesaFixa);
+    public ResponseEntity<DespesaFixa> createDespesaFixa(@RequestBody DespesaFixa despesaFixa) {
+        DespesaFixa savedDespesaFixa = despesaFixaService.addDespesaFixa(despesaFixa);
         return ResponseEntity.ok(savedDespesaFixa);
     }
 
-    @GetMapping
-    public List<DespesaFixa> getDespesasFixa() {
-    return despesasFixaService.getAllDespesasFixa();
-    }
-
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDespesaFixa(@PathVariable Long id) {
-        despesasFixaService.deleteDespesaFixa(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/mes/{mesId}")
+    public List<DespesaFixa> getDespesasFixasPorMes(@PathVariable Long mesId) {
+        return despesaFixaService.getDespesasFixasPorMes(mesId);
     }
 }

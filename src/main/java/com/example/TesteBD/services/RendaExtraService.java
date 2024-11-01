@@ -20,9 +20,13 @@ public class RendaExtraService {
         return rendaExtraRepository.findAll();
     }
 
+    public List<RendaExtra> getRendasExtrasPorMes(Long mesId) {
+        return rendaExtraRepository.findByMesId(mesId);
+    }
     public Double getTotalBalance() {
         return rendaExtraRepository.findAll().stream().mapToDouble(RendaExtra::getAmount).sum();
     }
+
     public void deleteRendaExtra(Long id) {
         rendaExtraRepository.deleteById(id);
     }

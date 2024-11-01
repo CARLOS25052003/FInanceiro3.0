@@ -6,22 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
-@Table(name = "despesa_fixa")
-public class DespesaFixa {
+@Entity
+@Table(name = "mes")
+public class Mes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String description;
-    private Double amount;
-
-    private String dateAdded;
+    @Column(nullable = false)
+    private Integer mes;
 
     @ManyToOne
-    @JoinColumn(name = "mes_id")
-    private Mes mes;
+    @JoinColumn(name = "ano_id", nullable = false)
+    private Ano ano;
 }

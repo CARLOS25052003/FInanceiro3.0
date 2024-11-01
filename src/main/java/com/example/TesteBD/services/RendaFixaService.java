@@ -20,6 +20,9 @@ public class RendaFixaService {
         return rendaFixaRepository.findAll();
     }
 
+    public List<RendaFixa> getRendasFixasPorMes(Long mesId) {
+        return rendaFixaRepository.findByMesId(mesId);
+    }
     public Double getTotalRendasFixas() {
         return rendaFixaRepository.findAll().stream().mapToDouble(RendaFixa::getAmount).sum();
     }
