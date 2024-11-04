@@ -1,55 +1,35 @@
 package com.example.TesteBD.controllers;
 
+import com.example.TesteBD.models.Despesas;
 import com.example.TesteBD.models.Mes;
-import com.example.TesteBD.repositorys.AnoRepository;
-import com.example.TesteBD.repositorys.MesRepository;
+import com.example.TesteBD.models.RendaFixa;
+import com.example.TesteBD.services.MesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/mes")
 public class MesController {
-
     @Autowired
-    private MesRepository mesRepository;
+    private MesService mesService;
 
-    @Autowired
-    private AnoRepository anoRepository;
+    // Método existente para listar todos os meses
+    @GetMapping // Este método agora vai listar todos os meses
+    public List<Mes> getAllMeses() {
+        return mesService.getAllMes();
+    }
 
-    @PostMapping("/api/atualizarMes")
-    @Transactional
-    public ResponseEntity<?> atualizarMes() {
-        // Obter o mês atual e ano atual
-        // (Supondo que você tenha um método para obter o mês e ano atuais)
-        Mes mesAtual = mesRepository.findMesAtual(); // Implemente esse método no repositório
+    // Novo método para obter rendas e despesas por mês
+    @GetMapping("/{id}/rendas")
+    public List<RendaFixa> getRendasPorMes(@PathVariable Long id) {
+        return mesService.getRendasByMes(id);
+    }
 
-        if (mesAtual == null) {
-            return ResponseEntity.badRequest().body("Mês atual não encontrado.");
-        }
-
-        // Obter o próximo mês
-        int mesProximo = mesAtual.getMes() + 1;
-        int ano = mesAtual.getAnoId().getAno();
-
-        // Se for dezembro, incrementar o ano
-        if (mesProximo > 12) {
-            mesProximo = 1;
-            ano++;
-        }
-
-        // Atualizar o mês atual
-        mesAtual.setAnoId(anoRepository.findByAno(ano)); // Supondo que você tenha um método para buscar o ano
-        mesAtual.setMes(mesProximo);
-        mesRepository.save(mesAtual);
-
-        // Salvar o mês anterior para visualização, se necessário
-        // Você pode ter uma tabela separada para histórico ou apenas marcar o mês atual como "concluído"
-        // Exemplo de marcar como concluído:
-        mesAtual.setConcluido(true);
-        mesRepository.save(mesAtual);
-
-        return ResponseEntity.ok("Mês atualizado com sucesso.");
+    @GetMapping("/{id}/despesas")
+    public List<Despesas> getDespesasPorMes(@PathVariable Long id) {
+        return mesService.getDespesasByMes(id);
     }
 }

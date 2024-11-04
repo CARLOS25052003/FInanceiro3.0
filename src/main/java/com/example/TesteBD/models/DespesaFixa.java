@@ -21,6 +21,8 @@ public class DespesaFixa {
 
     private String dateAdded;
 
+    private String metodoPagamento;
+
     @ManyToOne
     @JoinColumn(name = "mes_id")
     private Mes mes;

@@ -19,6 +19,8 @@ public class Despesas {
     @Column(name="date_added")
     private String dateAdded;
 
+    private String metodoPagamento;
+
     @ManyToOne
     @JoinColumn(name = "mes_id")
     private Mes mes;
