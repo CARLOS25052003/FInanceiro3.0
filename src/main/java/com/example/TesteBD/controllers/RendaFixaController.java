@@ -23,12 +23,17 @@ public class RendaFixaController {
     @GetMapping
     public List<RendaFixa> getAllRendasFixas() {
         return rendaFixaService.getAllRendasFixas();
-    }
 
+    }
+    @GetMapping("/mes/{mesId}")
+    public List<RendaFixa> getRendasFixasPorMes(@PathVariable Long mesId) {
+        return rendaFixaService.getRendasFixasPorMes(mesId);
+    }
     @GetMapping("/totalBalances")
     public double getRendaFixa() {
         return rendaFixaService.getTotalRendasFixas();
     }
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteRendaFixa(@PathVariable Long id) {
         rendaFixaService.deleteRendaFixa(id);

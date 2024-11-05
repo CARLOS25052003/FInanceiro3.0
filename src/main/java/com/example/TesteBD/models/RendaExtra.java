@@ -19,4 +19,8 @@ public class RendaExtra {
 
     @Column(name = "date_added")
     private String dateAdded;
+
+    @ManyToOne
+    @JoinColumn(name = "mes_id")
+    private Mes mes;
 }

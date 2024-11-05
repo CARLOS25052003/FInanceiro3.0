@@ -1,29 +1,26 @@
 package com.example.TesteBD.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
-@Table(name = "despesa_fixa")
-public class DespesaFixa {
+@Entity
+@Table(name = "meses")
+public class Mes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String description;
-    private Double amount;
-
-    private String dateAdded;
-
-    private String metodoPagamento;
+    private Integer mes;
 
     @ManyToOne
-    @JoinColumn(name = "mes_id")
-    private Mes mes;
+    @JoinColumn(name = "ano_id", nullable = false)
+    @JsonBackReference
+    private Ano ano;
 }
