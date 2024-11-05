@@ -32,9 +32,4 @@ public class AnoController {
         return anoService.listarMesesPorAno(anoId);
     }
 
-    @PostMapping("/{anoId}/meses")
-    public ResponseEntity<Mes> criarMes(@PathVariable Long anoId, @RequestBody Integer mes) {
-        Mes novoMes = anoService.criarMes(anoId, mes);
-        return ResponseEntity.ok(novoMes);
-    }
 }
