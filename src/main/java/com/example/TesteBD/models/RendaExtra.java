@@ -20,7 +20,11 @@ public class RendaExtra {
     @Column(name = "date_added")
     private String dateAdded;
 
+<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(name = "mes_id")
     private Mes mes;
+=======
+
+>>>>>>> fcf6b5f (Finalizado)
 }

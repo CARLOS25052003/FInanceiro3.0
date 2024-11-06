@@ -23,7 +23,10 @@ public class DespesaFixa {
 
     private String metodoPagamento;
 
+<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(name = "mes_id")
     private Mes mes;
+=======
+>>>>>>> fcf6b5f (Finalizado)
 }
