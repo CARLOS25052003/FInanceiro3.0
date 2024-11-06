@@ -27,9 +27,7 @@ public class DespesasService {
     public Double getTotalDespesas() {
         return despesasRepository.findAll().stream().mapToDouble(Despesas::getAmount).sum();
     }
-    public List<Despesas> getDespesasPorMes(Long mesId) {
-        return despesasRepository.findByMesId(mesId);
-    }
+
     public void deleteDespesas(Long id){
         despesasRepository.deleteById(id);
     }

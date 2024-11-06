@@ -16,16 +16,9 @@ public class Despesas {
 
     private String description; // Descrição da despesa
     private double amount;       // Valor da despesa
-    @Column(name="date_added")
+    @Column(name = "date_added")
     private String dateAdded;
 
     private String metodoPagamento;
 
-<<<<<<< HEAD
-    @ManyToOne
-    @JoinColumn(name = "mes_id")
-    private Mes mes;
-=======
-
->>>>>>> fcf6b5f (Finalizado)
 }

@@ -25,10 +25,7 @@ public class RendaFixaController {
         return rendaFixaService.getAllRendasFixas();
 
     }
-    @GetMapping("/mes/{mesId}")
-    public List<RendaFixa> getRendasFixasPorMes(@PathVariable Long mesId) {
-        return rendaFixaService.getRendasFixasPorMes(mesId);
-    }
+
     @GetMapping("/totalBalances")
     public double getRendaFixa() {
         return rendaFixaService.getTotalRendasFixas();

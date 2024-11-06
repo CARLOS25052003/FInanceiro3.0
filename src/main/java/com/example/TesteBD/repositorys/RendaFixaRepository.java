@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface RendaFixaRepository extends JpaRepository<RendaFixa, Long> {
-    List<RendaFixa> findByMesId(Long mesId);
 }

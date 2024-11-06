@@ -17,7 +17,4 @@ public class RendaFixa {
 
     private String dateAdded;
 
-    @ManyToOne
-    @JoinColumn(name = "mes_id")
-    private Mes mes;
 }

@@ -25,10 +25,7 @@ public class DespesasController {
     public List<Despesas> findAll() {
         return despesasService.getAllDespesas(); // Certifique-se de que este método está implementado no DespesasService
     }
-    @GetMapping("/mes/{mesId}")
-    public List<Despesas> getDespesasPorMes(@PathVariable Long mesId) {
-        return despesasService.getDespesasPorMes(mesId);
-    }
+
     @GetMapping("/total")
     public Double findTotal() {
         return despesasService.getTotalDespesas();
